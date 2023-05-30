@@ -1,1 +1,37 @@
-<!-- HTML 코드를 작성해 주세요. -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이미지와 피규어</title>
+</head>
+<body>
+  <!-- alt는 반드시 있어야함(접근성 측면에서 중요+SEO에도 영향을 줌)
+  alt가 없으면 src값을 출력한다 -->
+  <!-- 대체텍스트는 한글로 웹카페라고 작성하거나 사전에 있는 web cafe라고 적어주는게 좋음 -->
+  <h1>
+    <img src="./images/webcafe-logo.png" alt="web cafe" />
+  </h1>
+
+  <!-- figure : 캡션을 달 수 있는 그룹 -->
+  <figure>
+    <img src="./images/likelion-black.png" alt="Like Lion" />
+    <!-- figure : 이미지에 캡션 달아주기 (대체텍스트 생략하고 캡션 써도 됨) -->
+    <figcaption>Like Lion</figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/rwd.jpg" alt="" />
+    <!-- figcaption 아래 코드 : 이미지에 대한 캡션 정보 -->
+    <figcaption>
+      <p>
+        <strong>Responsive Web<br />Design Strategies</strong>
+        <span>반응형 웹디자인 전략</span>
+      </p>
+      <a href="/">강의정보</a>
+    </figcaption>
+  </figure>
+
+</body>
+</html>
