@@ -4,10 +4,20 @@
   color: inherit;
 }
 
+/* 가상 요소 선택자 */
+/* 이 상황(문자를 드래그하면)이 발생하면 배경색이 남색으로, 글자색이 흰색으로 바뀐다. */
+::selection {
+  background: #373e6a;
+  color: hotpink;
+}
+
+
 /* 태그 선택자(요소 선택자) */
 body {
   /* 글꼴 SUIT, 굵기 300(얇아보임), 배경색, 글자색  */
   font-family: "SUIT";
+  /* margin 0 없애면 글씨가 조금 더 왼쪽으로 붙음. 기본적으로 가지고 있는 스타일 : agent style 
+  agent style 제거하는 것 : reset (1. 아예 제거(Reset), 2. 노멀하게 만들기(Normalize))*/
   margin: 0;
   font-weight: 300;
   /* 키워드 형식 background-color: black;*/
@@ -18,7 +28,7 @@ body {
   /* color: rgb(255, 0, 255, 0.5); */
   /* hsla 함수 : 색상(hue), 채도(saturation) 명도(lightness) 알파(alpha) */
   /* color:hsla(110, 100%, 100%, 1) : 채도, 명도를 100으로 주면 무조건 흰색 나옴 */
-  color:hsla(110, 50%, 30%, 1);
+  color:hsla(110, 100%, 100%, 1);
 }
 
 /* class : 동일한 스타일을 여러 부품에 적용하고 싶을 때 사용. 
@@ -28,15 +38,22 @@ id, body..등등 요소 직접 선택하는 방법 => 안티패턴 => 비추 */
 /* 안티패턴 : div 같은건 하나만 사용된다는 보장이 없기 때문에 태그 선택자를 전역에 바로 쓰는 것 : 
 태그 선택자를 사용하는건 줄여야한다! */
 .fancy {
-  /* 글씨 두께, 글씨 그림자 */
+  /* 글씨 두께, 글씨 그림자*/
   font-weight: bold;
   text-shadow: 4px 4px 3px #77f;
+  /* text-align: center; */
+}
+
+  /* 특정 fancy에만 다른 스타일을 주고 싶으면 클래스를 하나 더 추가하면됨!(클래스 여러개 부여할 수 있음) */
+  /* 블럭 상자 안에서 인라인 컨텐츠가 가운데 정렬됨  */
+.align{
+  text-align: center;
 }
 
 ul.menu{
 	margin: 0;
 	padding-left: 0;
-  color: #f00;
+  color: #0f0;
 }
 
 /* 태그 이름 붙여쓰는거랑 띄워서 쓰는거랑은 무슨 차이? 
@@ -49,3 +66,70 @@ ul.menu{
   /* border : 테두리 만드는 속성 */
   border: red 2px solid;
 }
+
+
+/* 속성 선택자 */
+/* menu 클래스를 가진 영역 안에 포함된 a를 선택. a가 가지는 속성 중 href 속성이 
+.html로 끝나는 것을 선택해서 배경색을 파란색으로 설정한다.(원하는 조건에 맞는 것만 걸러냄) 
+.html에서 .을 찍으면 확장자라는 표현이라 사용함. .은 없어도 상관없음*/
+.menu a[href$=".html"] {
+  background-color: blue;
+}
+
+/* 선택자 목록(menu, fancy 둘 다 선택) => 코드의 간결성 위해 합침(선언 1번만 해도 됨) */
+.fancy, 
+.menu{
+  font-size: 24px;
+}
+
+/* 가상 요소 선택자 */
+/* align클래스를 가진 p 요소로 가서 해당 요소가 before 속성을 가지도록 함 -> content 속성이 필요함! */
+/* 마크업에 있어야되는데 가상으로 만들어서 추가시킴 => 가상컨텐츠 */
+/* before, after은 p요소의 자식이 된다. -> 얘네는 붙여서 적어야만 align에 before, after라는 자식을 만들어줌 */
+.align::before{
+  content: "이전 요소";
+}
+
+
+.align::after{
+  content: "다음 요소";
+}
+
+/* 가상 클래스 */
+/* 2번째 li 찾기
+.menu li:nth-child(2){
+  color: yellow;
+}*/
+
+/* 2번째 앞으로 몽땅 선택 
+.menu li:nth-child(-n+2){
+  color: yellow;
+}*/
+
+/* 6, 7, 8번째 선택 
+.menu li:nth-child(n+6){
+  color: yellow;
+}*/
+
+/* 2번 앞, 7번 후 선택(1, 2, 7, 8) 
+.menu li:nth-child(-n+2), .menu li:nth-child(n+7){
+
+}
+
+홀수번째만 찾거나 짝수번째만 찾고 싶을 때 유용
+.menu li:nth-child(odd){
+  color: yellow;
+}*/
+
+/* hover라는 상황 선택(a에 마우스를 올리면 주황색 상자에 생김)
+.menu a:hover{
+  border: 5px solid orange;
+}  */
+
+/* hover는 모든 곳에 쓸 수 있음 */
+h1.menu:hover{
+  background-color: pink;
+}
+/* h1 : befocusable 객체
+focus는 focusable 객체에만 적용할 수 있음
+객체에 focus 받을 수 있는 tabindex=0조건을 주면 focusable 객체가 아니어도 적용할 수 있음 */
