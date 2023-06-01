@@ -1,4 +1,54 @@
 body {
   font-family: "SUIT";
-  font-weight: 300;
+  font-weight: 700;
+}
+
+/* .menu li a{} : menu 클래스 안에 포함된 li 안에 포함된 a 선택하기 */
+.menu{
+  color: gray;
+  font-size: 36px;
+  /* border가 상속되었다면 a에도 border가 생겨야되는데 a는 적용되지 않는 이유 
+  : border속성은 상속에서 제외되는 속성이기 때문 (상속 시키고 싶으면 강제상속 키워드 사용)*/
+  /* border: 5px green dashed; */
+}
+
+
+/* color는 다시 강제상속 시켜야되고, font-size는 부모에서 적용해도 바로 적용됨 
+ -> 없는 agent style은 부모로부터 물려 받게 되는데, 
+ font-size는 지정된 agent-style(-webkit-any-link..)이 존재하지 않기 때문에 바로 적용된다.*/
+ /* .menu .pick쓰면 더 자세함?????? */
+li.pick{
+  /* li에 지정해준 분홍색이 적용되고 노란색은 적용안됨(cascade, 우선순위 따라) */
+  background-color: yellow;
+}
+
+
+/* .menu li 선택자가 .pick 선택자보다 강하다. 왜냐하면 선택자 .menu li는 선택자가 menu, li 2개이기 때문.
+따라서 .menu li 다음에 .pick으로 노란색을 지정해도 .menu li가 더 강하기 때문에 .menu li에 지정한 분홍색이 적용됨
+=> li.pick에 노란색을 적용하면 li요소이면서 클래스 이름이 pick인 애를 찾아서 클래스, 태그 한 번씩 써서 위 .menu li와 동일 세기임.
+힘이 동일할 땐 나중에 선언한 애가 더 강해짐 => 먼저 적용된 분홍색 말고 이후에 적용한 노란색이 적용됨 
+또 분홍색이 나오게 하고 싶으면 ul.menu li 적용하면 얘가 더 세지므로 분홍색이 적용됨
+ul li.pick => 같은 점수이므로 나중에 선언된 얘가 분홍색 / ul.menu li.pick
+++++ 적용하고 싶은 값에 !important 입력하면 모두 이 색으로 적용됨(우선순위가됨)
+* 근데 important는 너무 남발하면 안됨 => 스타일이 왜 적용 안되지? 우선순위 확인할까? 이럴 때 쓰는 것.*/
+.menu li{
+  background-color: pink;
+  /* border: inherit; */
+  /* a는 바로 위 부모거를 상속받는데, li에 border가 설정되어있지 않으면 menu에 설정하고 a에 강제상속키워드 사용해도
+  border이 적용되지 않음 => a 바로 위에 있는 li에도 적용해줘야함 */
+}
+
+
+ /* 상속 아니고 a에게 직접 준거임 (어써 스타일..?)
+.menu li a 말고 .menu a 라고 써도 됨(li빼도 됨.)
+선택자 여러개 선택하면 마지막 a태그 access 하는 속도가 떨어지므로
+생략하는게 좋음 (.menu li a <<< .menu a)
+우선순위 규칙에도 영향을 주기 때문에 가급적이면 생략할 수 있는건 생략해라! */
+
+.menu a{
+  /* color: green; */
+  /* 부모로부터 받은 색상을 적용해줘 */
+  color: inherit;
+  /* 여기서 상속 설정 해주면 a에도 border가 생기게 됨(강제상속키워드 사용해서) */
+  /* border:inherit; */
 }
