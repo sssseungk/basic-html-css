@@ -1,1 +1,48 @@
-<!-- HTML 코드를 작성해 주세요. -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인터렉티브 속성</title>
+  <link rel="stylesheet" href="./style/peak-time.css" />
+  <!-- defer 논리속성 선언 -->
+  <script src="./js/peak-time.js" defer></script>
+</head>
+
+<body>
+  <!-- tabindex의 값을 0으로 설정하면 마크업한 순서대로 접근함 (숫자 : 접근 순서) 
+  tabindex="-1" : 포커스를 제거할 때. 여러 개 있는 anchor 태그에서 하나는 접근하지 않게 설정하고 싶을 때 사용-->
+  <!-- <h1 tabindex="0">유저 인터렉션 속성</h1> -->
+  <h1>유저 인터렉션 속성</h1>
+  <div class="voting-result-wrapper">
+    <!-- accesskey='p' -->
+    <button type="button" class="voting-result-button" accesskey="P">피크타임 Top6 결과 보기</button>
+    <div class="voting-result" hidden>
+      <!-- 순서형 목록 생성(ol(ordered list) : 순서가 중요한 컨텐츠 만들 때 사용) -->
+      <ol>
+        <li>팀 11시 - VANNER</li>     <!--1등-->
+        <li>팀 7시 - MASC</li>
+        <li>팀 8시 - 다크비</li>
+        <li>팀 24시 - B.A.P, 탑독, 비아이지, ARGON</li>
+        <li>팀 13시 - BAE173</li>
+        <li>팀 20시 - 몬트</li>       <!--6등-->
+      </ol>
+    </div>
+
+    <div tabindex="0" class="voting-result" hidden>
+      <!-- ul(unordered list) : 순서없이 리스트로 정리 -->
+      <ul class="voting-result-vedio">
+        <li><a href="https://vod.jtbc.co.kr/player/embed/VO10679813">피크타임 1,2위 영상</a></li>
+        <li><a href="https://vod.jtbc.co.kr/player/embed/VO10679810" tabindex="-1">피크타임 3,4위 영상</a></li>
+        <li><a href="https://vod.jtbc.co.kr/player/embed/VO10679807">피크타임 5,6위 영상</a></li>
+      </ul>
+    </div>
+  </div>
+  <figure>
+    <img src="./images/peaktime.jpeg" alt="피크타임 매주 수요일 밤 10시 30분 방송" />
+    <figcaption class="user-caption" contenteditable>PEAK TIME</figcaption>
+  </figure>
+</body>
+
+</html>
