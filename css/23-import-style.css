@@ -1,7 +1,9 @@
 h1 {
+  /* 글자 그림자 지정 속성 */
   text-shadow: 1px 1px 0 #ff0;
 }
 
 p {
+  /* 밑줄 장식 */
   text-decoration: underline;
 }
