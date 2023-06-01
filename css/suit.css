@@ -1,4 +1,7 @@
+/* font-face : 웹 폰트(로컬폰트X) 
+글꼴 다운로드 받아 파일 연결*/
 @font-face {
+  /* 글꼴 */
   font-family: "SUIT";
   font-weight: 100;
   src: local("SUIT Thin"), url("font/SUIT-Thin.woff2") format("woff2");
