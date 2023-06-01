@@ -1,1 +1,37 @@
-<!-- HTML 코드를 작성해 주세요. -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스크립팅 요소</title>
+  <link rel="stylesheet" href="./style/card.css" />
+  
+  <!-- Disable > Disable JavaScript 할 경우 p태그 내용 출력되면서 뒤집기 실행 안됨 -->
+  <noscript>
+    <p>Javascript를 지원하지 않은 환경에서는 서비스를 이용할 수 없습니다.</p>
+  </noscript>
+</head>
+
+<body>
+  <button type="button" class="flip-button">카드 뒤집기</button>
+
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="card-face card-face-black"></div>
+      <div class="card-face card-face-white"></div>
+    </div>
+  </div>
+  <!-- script 코드 위치를 head에 넣었을 때 화면에 아무것도 나타나지 않는 이유 ⬇️ -->
+  <!-- 웹브라우저는 웹 문서에 자바스크립트 파일이 지정된 경우 
+    해당 파일이 모두 다운로드 될 때까지 HTML파싱(코드 해석)을 중단합니다 
+   => 파싱하다가 script 태그를 만나는 순간 해석을 중단하고 서버에 요청해 스크립트 파일을 다운로드 받음.
+  다운받을때까지 대기하기 때문에 아래 body태그 내용이 해석이 안돼서 실행 결과를 볼 수 없음. 
+  조직도가 완성되지 않았는데 파일을 다운받은 것 (DOM Tree : 계층구조(가계도) 미완성(?))-->
+  <!-- async(html 해석 하다가 자바스크립트 만나면 해석과 파일 다운로드를 동시에 진행함. 스크립트 다운로드 끝나면 즉시 실행. 
+  하지만 html이 다 해석되지 않았을수도 있어 에러 발생할 수 있음) -> defer를 선언하면 파싱 중단하지 않고 다운로드.  -->
+  <!-- -> 주로 head에 모아서 사용함. body 끝에 써도 되긴함 -->
+  <script src="./js/card.js"></script>
+</body>
+
+</html>
