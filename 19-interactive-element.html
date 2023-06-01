@@ -1,1 +1,43 @@
-<!-- HTML 코드를 작성해 주세요. -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- #다이얼로그 예시 -->
+  <!-- open 논리 속성을 제거(false)하면 화면에 보이지않음 -->
+  <!-- aria-label과 alt 차이 => alt : 이미지, area 태그에 주는 대체 텍스트, 파트별로 이름표 달아주고 싶을 때 사용
+  aria-label : 이름표 달아주는 것(컨텐츠가 어떤 내용인지 알려주는 제목), 이미지 뿐만 아니라 다양하게 쓰임 -->
+  <!-- dialog에 이름표 다는 코드⬇️ -->
+  <dialog open aria-label="가입안내">
+
+    <p>차별화된 회원가입 혜택</p>
+    <a href="/">지금 바로 만나보세요!</a>
+    <form method="dialog">
+      <!-- form태그는 div 태그로 수정 가능-> 버튼을 누르면 type값에 button 타입을 선언해서 미리 짜여진 자바스크립트 로직이 실행되기 때문 -->
+      <button type="button">오늘 하루 안 보기</button>
+      <button type="button">닫기</button>
+    </form>
+  </dialog>
+
+  <!-- 상세 및 요약 정보 제공 예시 -->
+  <div>
+    <!-- aria-label 대신 summary 태그를 활용함 -->
+    <details open>
+      <!-- 🔻:클릭하면 상세내용이 펼쳐짐  -->
+      <summary>국민 내일배움카드</summary>
+      <figure>
+        <img src="images/learn-card.png" alt="" />
+      </figure>
+      <p>급격한 기술 발전 및 노동시장 변화에 대응하는 사회안전망 차원에서 국민 스스로 직업능력개발훈련을 실시할 수 있도록 
+        훈련비 등을 지원받을 수 있는 카드를 의미한다.</p>
+    </details>
+  </div>
+
+</body>
+
+</html>
