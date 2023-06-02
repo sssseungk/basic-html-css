@@ -4,20 +4,20 @@ html{
 
 body{
   font-size: 1rem; 
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-weight: 700; 
-  /* font-family: Georgia, 'Times New Roman', Times, serif;  */
-  /* 로컬 폰트 가져오는 방법, 웹 폰트 가져오는 방법 */ 
-  /* 웹폰트 : 서버에서 폰트파일 다운받아 렌더링ㅎ면 디바이스 환경에 상관없이 동일한 글꼴 적용할 수 있음 */
+  font-family: 'Noto Serif KR', serif;
+
 }
 
 h1{
   font-size: 3em;
 }
 
-/* html에 연결, css에서 가져오기 */
-p{
-  font-size: 2em;
-  line-height: 1.5em;
-  /* font-weight: 100; */
+div{
+  font-size: 4px;
+
 }
+
+p{
+  line-height: 1.5;
+}
+
